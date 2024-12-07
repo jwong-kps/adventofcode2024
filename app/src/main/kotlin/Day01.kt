@@ -37,7 +37,7 @@ class Day01 {
         val locations1 = mutableListOf<String>()
         val locations2Set = mutableMapOf<String, Int>()
 
-        for (item in lines!!) {
+        for (item in lines) {
             if (item.isNotBlank()) {
                 val splitValues = item.split("  ")
                 locations1.add(splitValues[0].replace("\\s".toRegex(), ""))

@@ -29,13 +29,11 @@ class Day02 {
 
                 if (findBadLevels(levels) == 0)
                     safeReports++
-                else
-                {
+                else {
                     for (i in levels.indices) {
                         val updatedLevels = levels.toMutableList()
                         updatedLevels.removeAt(i)
-                        if (findBadLevels(updatedLevels) == 0)
-                        {
+                        if (findBadLevels(updatedLevels) == 0) {
                             safeReports++
                             break
                         }

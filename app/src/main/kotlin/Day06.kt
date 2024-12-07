@@ -19,16 +19,16 @@ class Day06 {
         var currentPosition: Pair<Int, Int> = findCurrentPosition(processedFileData)
         var currentDirection = Direction.NORTH
 
-        var iterations = 0;
+        var iterations = 0
         while (iterations < 100000) {
             distinctPositions.add(currentPosition.first.toString() + "," + currentPosition.second.toString())
 
-            val nextPositionVector = findNextPosition(currentPosition, currentDirection)
+            val nextPositionVector = findNextPosition(currentDirection)
 
             if (hasEscaped(currentPosition, nextPositionVector, processedFileData)) break
 
             if (processedFileData[currentPosition.first + nextPositionVector.first][currentPosition.second + nextPositionVector.second] == '#') {
-                val changePositionVector = changePosition(currentPosition, currentDirection)
+                val changePositionVector = changePosition(currentDirection)
                 currentPosition = Pair(currentPosition.first + changePositionVector.first, currentPosition.second + changePositionVector.second)
                 currentDirection = findNewDirection(currentDirection)
             } else {
@@ -79,7 +79,7 @@ class Day06 {
     // facing south: i=0, j=1
     // facing west: i=-1, j=0
     //
-    private fun findNextPosition(location: Pair<Int, Int>, direction: Direction): Pair<Int, Int> {
+    private fun findNextPosition(direction: Direction): Pair<Int, Int> {
         return when (direction) {
             Direction.NORTH -> Pair(-1, 0)
             Direction.EAST -> Pair(0, 1)
@@ -94,7 +94,7 @@ class Day06 {
     // facing south: i=-1, j=0
     // facing west: i=0, j=-1
     //
-    private fun changePosition(location: Pair<Int, Int>, direction: Direction): Pair<Int, Int> {
+    private fun changePosition(direction: Direction): Pair<Int, Int> {
         return when (direction) {
             Direction.NORTH -> Pair(0, 1)
             Direction.EAST -> Pair(1, 0)

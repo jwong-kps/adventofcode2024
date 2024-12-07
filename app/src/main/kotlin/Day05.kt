@@ -6,13 +6,13 @@ class Day05 {
     private val lines = readFileAsLinesUsingGetResourceAsStream(challengeFileName)
     private val rules = mutableSetOf<String>()
     private val pages = mutableListOf<String>()
-    private val badPages: MutableList<String> = mutableListOf();
+    private val badPages: MutableList<String> = mutableListOf()
 
     fun challengeOne() {
 
         processFileIntoRulesAndPages()
 
-        var sumOfMiddlePages = 0;
+        var sumOfMiddlePages = 0
 
         for (item in pages) {
             val pageArray = item.split(",")
@@ -41,7 +41,7 @@ class Day05 {
     }
 
     private fun processFileIntoRulesAndPages() {
-        var usePages = false;
+        var usePages = false
         for (item in lines) {
             if (item.isBlank()) usePages = true
 
@@ -53,7 +53,7 @@ class Day05 {
     }
 
     fun challengeTwo() {
-        var sumOfMiddlePages = 0;
+        var sumOfMiddlePages = 0
 
         for (item in badPages) {
             val pageArray = item.split(",")
