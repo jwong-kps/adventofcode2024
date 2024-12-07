@@ -2,7 +2,7 @@ package wong.jonathan.app
 
 class Day05 {
 
-    private val challengeFileName = "/input/day05.txt"
+    private val challengeFileName = "input/day05.txt"
     private val lines = readFileAsLinesUsingGetResourceAsStream(challengeFileName)
     private val rules = mutableSetOf<String>()
     private val pages = mutableListOf<String>()

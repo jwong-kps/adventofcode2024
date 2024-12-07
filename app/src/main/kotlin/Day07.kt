@@ -3,7 +3,7 @@ package wong.jonathan.app
 import java.math.BigInteger
 
 class Day07 {
-    private val challengeFileName = "/input/day07.txt"
+    private val challengeFileName = "input/day07.txt"
 
     private val lines = readFileAsLinesUsingGetResourceAsStream(challengeFileName)
     private val badLines: MutableList<String> = mutableListOf()

@@ -1,7 +1,7 @@
 package wong.jonathan.app
 
 class Day06 {
-    private val challengeFileName = "/input/day06.txt"
+    private val challengeFileName = "input/day06.txt"
 
     private val lines = readFileAsLinesUsingGetResourceAsStream(challengeFileName)
 

@@ -1,5 +1,7 @@
 package wong.jonathan.app
 
+import java.io.File
+
 fun main() {
     val day01 = Day01()
     day01.challengeOne()
@@ -31,7 +33,7 @@ fun main() {
 }
 
 fun readFileAsLinesUsingGetResourceAsStream(fileName: String): List<String> {
-    return {}.javaClass.getResourceAsStream(fileName).bufferedReader(Charsets.UTF_8).readLines()
+    return File(fileName).bufferedReader().readLines()
 }
 
 fun processLinesInto2dArray(lines: List<String>): Array<CharArray> {

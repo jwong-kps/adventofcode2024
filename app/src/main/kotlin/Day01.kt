@@ -2,7 +2,7 @@ package wong.jonathan.app
 
 class Day01 {
 
-    private val challengeFileName = "/input/day01.txt"
+    private val challengeFileName = "input/day01.txt"
 
     fun challengeOne() {
         val lines = readFileAsLinesUsingGetResourceAsStream(challengeFileName)
@@ -10,7 +10,7 @@ class Day01 {
         val locations1 = mutableListOf<String>()
         val locations2 = mutableListOf<String>()
 
-        for (item in lines!!) {
+        for (item in lines) {
             if (item.isNotBlank()) {
                 val splitValues = item.split("  ")
                 locations1.add(splitValues[0].replace("\\s".toRegex(), ""))
@@ -32,7 +32,7 @@ class Day01 {
     }
 
     fun challengeTwo() {
-        val lines = readFileAsLinesUsingGetResourceAsStream("/input/day01.txt")
+        val lines = readFileAsLinesUsingGetResourceAsStream("input/day01.txt")
 
         val locations1 = mutableListOf<String>()
         val locations2Set = mutableMapOf<String, Int>()

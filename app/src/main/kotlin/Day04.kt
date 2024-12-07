@@ -2,7 +2,7 @@ package wong.jonathan.app
 
 class Day04 {
 
-    private val DAY_FILE_NAME = "/input/day04.txt"
+    private val DAY_FILE_NAME = "input/day04.txt"
 
     private val M_POS = 1
     private val A_POS = 2
