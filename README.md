@@ -14,6 +14,14 @@ My approach to these solutions will be about:
 I hope you enjoy reading. I am always open to constructive feedback.
 
 ## Running the solutions
+You must place your inputs text files (from the Advent of Code website) in this directory:
+
+`./app/input/day01.txt`
+
+And you can put the example input text files here:
+
+`./app/input/examples/day01.txt`
+
 At the project root, simply execute on the terminal:
 
 `./gradlew run`
