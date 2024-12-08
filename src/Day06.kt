@@ -1,9 +1,7 @@
 package wong.jonathan.app
 
-class Day06 {
-    private val challengeFileName = "input/day06.txt"
-
-    private val lines = readFileAsLinesUsingGetResourceAsStream(challengeFileName)
+class Day06 : Challenge("day06", false) {
+    private val lines = readInputFileAsListOfStrings()
 
     enum class Direction {
         NORTH,
@@ -12,7 +10,7 @@ class Day06 {
         WEST
     }
 
-    fun challengeOne() {
+    override fun part1(): String {
         val processedFileData = processLinesInto2dArray(lines)
 
         val distinctPositions: MutableSet<String> = mutableSetOf()
@@ -39,12 +37,11 @@ class Day06 {
         }
 
 
-        println("Day 06 - Challenge 1 - ${distinctPositions.size}")
+        return distinctPositions.size.toString()
     }
 
-    fun challengeTwo() {
-
-        println("Day 06 - Challenge 2 - ")
+    override fun part2(): String {
+        return "N/A"
     }
 
     private fun hasEscaped(currentPosition: Pair<Int, Int>, nextPositionVector: Pair<Int, Int>, processedFileData: Array<CharArray>): Boolean {

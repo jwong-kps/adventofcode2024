@@ -2,14 +2,13 @@ package wong.jonathan.app
 
 import java.math.BigInteger
 
-class Day07 {
-    private val challengeFileName = "input/day07.txt"
+class Day07 : Challenge("day07", false) {
+    private val lines = readInputFileAsListOfStrings()
 
-    private val lines = readFileAsLinesUsingGetResourceAsStream(challengeFileName)
     private val badLines: MutableList<String> = mutableListOf()
     private var sumOfValidEquations: BigInteger = BigInteger.ZERO
 
-    fun challengeOne() {
+    override fun part1(): String {
 
         for (line in lines) {
             val result = line.split(": ")[0].toBigInteger()
@@ -22,12 +21,10 @@ class Day07 {
                 badLines.add(line)
         }
 
-        println("Day 07 - Challenge 1 - $sumOfValidEquations")
+        return sumOfValidEquations.toString()
     }
 
-    private fun convertStringArrayToBigIntArray(input: List<String>): Array<BigInteger> {
-        return input.map { BigInteger(it) }.toTypedArray()
-    }
+    private fun convertStringArrayToBigIntArray(input: List<String>): Array<BigInteger> = input.map { BigInteger(it) }.toTypedArray()
 
     private fun calculate(current: BigInteger, index: Int, bigIntegers: Array<BigInteger>, actualResult: BigInteger): Boolean {
         if (index < bigIntegers.size) {
@@ -39,7 +36,7 @@ class Day07 {
         return current == actualResult
     }
 
-    fun challengeTwo() {
+    override fun part2(): String {
         var sumOfValidEquations: BigInteger = sumOfValidEquations
 
         for (line in badLines) {
@@ -51,7 +48,7 @@ class Day07 {
                 sumOfValidEquations += result
         }
 
-        println("Day 07 - Challenge 2 - $sumOfValidEquations")
+        return sumOfValidEquations.toString()
     }
 
 

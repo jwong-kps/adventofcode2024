@@ -1,13 +1,11 @@
 package wong.jonathan.app
 
-class Day08 {
-    private val challengeFileNameExample = "input/examples/day08.txt"
-    private val challengeFileName = "input/day08.txt"
+class Day08 : Challenge("day08", false) {
+    private val lines = readInputFileAsListOfStrings()
 
-    private val lines = readFileAsLinesUsingGetResourceAsStream(challengeFileNameExample)
-    private val map = processLinesInto2dArray(lines)
+    private val grid = processLinesInto2dArray(lines)
 
-    fun challengeOne() {
+    override fun part1(): String {
         val antiNodesLocs: MutableSet<Pair<Int, Int>> = mutableSetOf()
 
         for (antennas in searchForAntennaLocations()) {
@@ -28,16 +26,16 @@ class Day08 {
             }
         }
 
-        println("Day 08 - Challenge 1 - ${antiNodesLocs.size}")
+        return antiNodesLocs.size.toString()
     }
 
     private fun searchForAntennaLocations(): Map<Char, List<Pair<Int, Int>>> {
         val antennaLocs: MutableMap<Char, MutableList<Pair<Int, Int>>> = mutableMapOf()
 
-        for (row in map.indices) {
-            for (column in map[row].indices) {
-                if (map[row][column] != '.') {
-                    val antennas = antennaLocs.getOrPut(map[row][column]) { mutableListOf() }
+        for (row in grid.indices) {
+            for (column in grid[row].indices) {
+                if (grid[row][column] != '.') {
+                    val antennas = antennaLocs.getOrPut(grid[row][column]) { mutableListOf() }
                     antennas.add(Pair(row, column))
                 }
             }
@@ -47,10 +45,10 @@ class Day08 {
     }
 
     private fun checkLocationIsInMap(loc: Pair<Int, Int>): Boolean {
-        return loc.first >= 0 && loc.second >= 0 && loc.first < map.size && loc.second < map[0].size
+        return loc.first >= 0 && loc.second >= 0 && loc.first < grid.size && loc.second < grid[0].size
     }
 
-    fun challengeTwo() {
+    override fun part2(): String {
         val antiNodesLocs: MutableSet<Pair<Int, Int>> = mutableSetOf()
 
         for (antennas in searchForAntennaLocations()) {
@@ -87,6 +85,6 @@ class Day08 {
             }
         }
 
-        println("Day 08 - Challenge 2 - ${antiNodesLocs.size}")
+        return antiNodesLocs.size.toString()
     }
 }

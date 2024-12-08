@@ -1,11 +1,9 @@
 package wong.jonathan.app
 
-class Day02 {
+class Day02 : Challenge("day02", false) {
+    private val reports = readInputFileAsListOfStrings()
 
-    private val challengeFileName = "input/day02.txt"
-    private val reports = readFileAsLinesUsingGetResourceAsStream(challengeFileName)
-
-    fun challengeOne() {
+    override fun part1(): String {
         var safeReports = 0
 
         for (report in reports) {
@@ -17,10 +15,10 @@ class Day02 {
             }
         }
 
-        println("Day 02 - Challenge 1 - $safeReports")
+        return safeReports.toString()
     }
 
-    fun challengeTwo() {
+    override fun part2(): String {
         var safeReports = 0
 
         for (report in reports) {
@@ -42,7 +40,7 @@ class Day02 {
             }
         }
 
-        println("Day 02 - Challenge 2 - $safeReports")
+        return safeReports.toString()
     }
 
     private fun findBadLevels(levels: List<String>): Int {
@@ -63,7 +61,6 @@ class Day02 {
         return badLevels
     }
 
-    private fun isLevelSafe(diff: Int, increasing: Boolean): Boolean {
-        return (!increasing && diff in 1..3) || (increasing && diff in -3..-1)
-    }
+    private fun isLevelSafe(diff: Int, increasing: Boolean): Boolean
+        = (!increasing && diff in 1..3) || (increasing && diff in -3..-1)
 }

@@ -1,11 +1,9 @@
 package wong.jonathan.app
 
-class Day03 {
+class Day03 : Challenge("day03", false) {
+    private val lines = readInputFileAsListOfStrings()
 
-    private val challengeFileName = "input/day03.txt"
-    private val lines = readFileAsLinesUsingGetResourceAsStream(challengeFileName)
-
-    fun challengeOne() {
+    override fun part1(): String {
         val regex = Regex("mul\\(\\d+,\\d+\\)")
 
         var sum = 0
@@ -19,10 +17,10 @@ class Day03 {
             }
         }
 
-        println("Day 03 - Challenge 1 - $sum")
+        return sum.toString()
     }
 
-    fun challengeTwo() {
+    override fun part2(): String {
         val regex = Regex("mul\\(\\d+,\\d+\\)|do\\(\\)|don't\\(\\)")
 
         var sum = 0
@@ -44,6 +42,6 @@ class Day03 {
             }
         }
 
-        println("Day 03 - Challenge 2 - $sum")
+        return sum.toString()
     }
 }

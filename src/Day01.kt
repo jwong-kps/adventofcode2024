@@ -1,12 +1,9 @@
 package wong.jonathan.app
 
-class Day01 {
+class Day01 : Challenge("day01", false) {
+    private val lines = readInputFileAsListOfStrings()
 
-    private val challengeFileName = "input/day01.txt"
-
-    fun challengeOne() {
-        val lines = readFileAsLinesUsingGetResourceAsStream(challengeFileName)
-
+    override fun part1(): String {
         val locations1 = mutableListOf<String>()
         val locations2 = mutableListOf<String>()
 
@@ -28,12 +25,10 @@ class Day01 {
             totalDistance += if (distance > 0) distance else (-1 * distance)
         }
 
-        println("Day 01 - Challenge 1 - $totalDistance")
+        return totalDistance.toString()
     }
 
-    fun challengeTwo() {
-        val lines = readFileAsLinesUsingGetResourceAsStream("input/day01.txt")
-
+    override fun part2(): String {
         val locations1 = mutableListOf<String>()
         val locations2Set = mutableMapOf<String, Int>()
 
@@ -50,6 +45,6 @@ class Day01 {
 
         locations1.forEach { location1 -> similarityScore += (location1.toInt() * locations2Set.getOrDefault(location1, 0)) }
 
-        println("Day 01 - Challenge 2 - $similarityScore")
+        return similarityScore.toString()
     }
 }

@@ -1,51 +1,20 @@
 package wong.jonathan.app
 
-import java.io.File
-
 fun main() {
     val day01 = Day01()
-    day01.challengeOne()
-    day01.challengeTwo()
-
+    day01.execute()
     val day02 = Day02()
-    day02.challengeOne()
-    day02.challengeTwo()
-
+    day02.execute()
     val day03 = Day03()
-    day03.challengeOne()
-    day03.challengeTwo()
-
+    day03.execute()
     val day04 = Day04()
-    day04.challengeOne()
-    day04.challengeTwo()
-
+    day04.execute()
     val day05 = Day05()
-    day05.challengeOne()
-    day05.challengeTwo()
-
+    day05.execute()
     val day06 = Day06()
-    day06.challengeOne()
-    day06.challengeTwo()
-
+    day06.execute()
     val day07 = Day07()
-    day07.challengeOne()
-    day07.challengeTwo()
-
+    day07.execute()
     val day08 = Day08()
-    day08.challengeOne()
-    day08.challengeTwo()
-}
-
-fun readFileAsLinesUsingGetResourceAsStream(fileName: String): List<String> {
-    return File(fileName).bufferedReader().readLines()
-}
-
-fun processLinesInto2dArray(lines: List<String>): Array<CharArray> {
-    val charArray2D = Array(lines.size) { CharArray(lines[0].length) }
-    for (i in lines.indices) {
-        for (j in lines[i].indices) {
-            charArray2D[i][j] = lines[i][j]
-        }
-    }
-    return charArray2D
+    day08.execute()
 }

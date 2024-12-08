@@ -1,14 +1,13 @@
 package wong.jonathan.app
 
-class Day05 {
+class Day05 : Challenge("day05", false) {
+    private val lines = readInputFileAsListOfStrings()
 
-    private val challengeFileName = "input/day05.txt"
-    private val lines = readFileAsLinesUsingGetResourceAsStream(challengeFileName)
     private val rules = mutableSetOf<String>()
     private val pages = mutableListOf<String>()
     private val badPages: MutableList<String> = mutableListOf()
 
-    fun challengeOne() {
+    override fun part1(): String {
 
         processFileIntoRulesAndPages()
 
@@ -37,7 +36,7 @@ class Day05 {
             }
         }
 
-        println("Day 05 - Challenge 1 - $sumOfMiddlePages")
+        return sumOfMiddlePages.toString()
     }
 
     private fun processFileIntoRulesAndPages() {
@@ -52,7 +51,7 @@ class Day05 {
         }
     }
 
-    fun challengeTwo() {
+    override fun part2(): String {
         var sumOfMiddlePages = 0
 
         for (item in badPages) {
@@ -79,6 +78,6 @@ class Day05 {
 
         }
 
-        println("Day 05 - Challenge 2 - $sumOfMiddlePages")
+        return sumOfMiddlePages.toString()
     }
 }
