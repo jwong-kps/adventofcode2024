@@ -51,7 +51,42 @@ class Day08 {
     }
 
     fun challengeTwo() {
+        val antiNodesLocs: MutableSet<Pair<Int, Int>> = mutableSetOf()
 
-        println("Day 08 - Challenge 2 - ")
+        for (antennas in searchForAntennaLocations()) {
+            for (thisAntenna in antennas.value) {
+                antiNodesLocs.add(thisAntenna)
+                for (otherAntenna in (antennas.value.takeLastWhile { it != thisAntenna })) {
+                    val diffRow = thisAntenna.first - otherAntenna.first
+                    val diffColumn = thisAntenna.second - otherAntenna.second
+
+                    var iteration = 1
+                    do {
+                        var stillInMap = false
+                        val antiNodeLoc = Pair(thisAntenna.first - (iteration * diffRow * -1), thisAntenna.second - (iteration * diffColumn * -1))
+
+                        if (checkLocationIsInMap(antiNodeLoc)) {
+                            antiNodesLocs.add(antiNodeLoc)
+                            stillInMap = true
+                            iteration++
+                        }
+                    } while (stillInMap)
+
+                    iteration = 1
+                    do {
+                        var stillInMap = false
+                        val antiNodeLoc = Pair(thisAntenna.first - (iteration * diffRow), thisAntenna.second - (iteration * diffColumn))
+
+                        if (checkLocationIsInMap(antiNodeLoc)) {
+                            antiNodesLocs.add(antiNodeLoc)
+                            stillInMap = true
+                            iteration++
+                        }
+                    } while (stillInMap)
+                }
+            }
+        }
+
+        println("Day 08 - Challenge 2 - ${antiNodesLocs.size}")
     }
 }
