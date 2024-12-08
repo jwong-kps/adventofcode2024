@@ -30,6 +30,10 @@ fun main() {
     val day07 = Day07()
     day07.challengeOne()
     day07.challengeTwo()
+
+    val day08 = Day08()
+    day08.challengeOne()
+    day08.challengeTwo()
 }
 
 fun readFileAsLinesUsingGetResourceAsStream(fileName: String): List<String> {
