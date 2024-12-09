@@ -17,4 +17,6 @@ fun main() {
     day07.execute()
     val day08 = Day08()
     day08.execute()
+    val day09 = Day09()
+    day09.execute()
 }
