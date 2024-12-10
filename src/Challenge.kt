@@ -1,6 +1,8 @@
 package wong.jonathan.app
 
 import java.io.File
+import kotlin.system.measureNanoTime
+import kotlin.system.measureTimeMillis
 
 abstract class Challenge(private val day: String, private val example: Boolean) {
 
@@ -19,8 +21,19 @@ abstract class Challenge(private val day: String, private val example: Boolean) 
 
     fun execute() {
         println("Running the solutions for $day [example=$example]")
-        println("Answer for part 1 [${part1()}]")
-        println("Answer for part 2 [${part2()}]")
+
+        var timeTaken = measureTimeMillis {
+            // Your method or code block here
+            print("Answer for part 1 [${part1()}]")
+        }
+        println(", time taken: $timeTaken ms")
+
+        timeTaken = measureTimeMillis {
+            // Your method or code block here
+            print("Answer for part 1 [${part2()}]")
+        }
+        println(", time taken: $timeTaken ms")
+
         println()
     }
 
