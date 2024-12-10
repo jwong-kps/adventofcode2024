@@ -61,6 +61,5 @@ class Day02 : Challenge("day02", false) {
         return badLevels
     }
 
-    private fun isLevelSafe(diff: Int, increasing: Boolean): Boolean
-        = (!increasing && diff in 1..3) || (increasing && diff in -3..-1)
+    private fun isLevelSafe(diff: Int, increasing: Boolean): Boolean = (!increasing && diff in 1..3) || (increasing && diff in -3..-1)
 }

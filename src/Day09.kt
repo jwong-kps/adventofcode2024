@@ -62,19 +62,18 @@ class Day09 : Challenge("day09", false) {
     }
 
     private fun findIndexOfFreeSpaceForBlockSize(blockSize: Long, diskMapAsBlocks: MutableList<Long>): Int {
-        var spaceFound = false
+        var spaceFound: Boolean
         var index = -1
         for (i in diskMapAsBlocks.indices) {
             if (diskMapAsBlocks[i] == freeSpaceBlockIndicator) {
                 spaceFound = true
-                for (j in (i + 1)..<i + blockSize) {
+                for (j in (i + 1) until i + blockSize) {
                     if (j.toInt() == diskMapAsBlocks.size || diskMapAsBlocks[j.toInt()] != freeSpaceBlockIndicator) {
                         spaceFound = false
                         break
                     }
                 }
-                if (spaceFound)
-                {
+                if (spaceFound) {
                     index = i
                     break
                 }
