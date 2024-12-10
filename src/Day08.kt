@@ -44,9 +44,8 @@ class Day08 : Challenge("day08", false) {
         return antennaLocs
     }
 
-    private fun checkLocationIsInMap(loc: Pair<Int, Int>): Boolean {
-        return loc.first >= 0 && loc.second >= 0 && loc.first < grid.size && loc.second < grid[0].size
-    }
+    private fun checkLocationIsInMap(loc: Pair<Int, Int>): Boolean
+        = loc.first >= 0 && loc.second >= 0 && loc.first < grid.size && loc.second < grid[0].size
 
     override fun part2(): String {
         val antiNodesLocs: MutableSet<Pair<Int, Int>> = mutableSetOf()
@@ -60,24 +59,22 @@ class Day08 : Challenge("day08", false) {
 
                     var iteration = 1
                     do {
-                        var stillInMap = false
                         val antiNodeLoc = Pair(thisAntenna.first - (iteration * diffRow * -1), thisAntenna.second - (iteration * diffColumn * -1))
+                        val stillInMap = checkLocationIsInMap(antiNodeLoc)
 
-                        if (checkLocationIsInMap(antiNodeLoc)) {
+                        if (stillInMap) {
                             antiNodesLocs.add(antiNodeLoc)
-                            stillInMap = true
                             iteration++
                         }
                     } while (stillInMap)
 
                     iteration = 1
                     do {
-                        var stillInMap = false
                         val antiNodeLoc = Pair(thisAntenna.first - (iteration * diffRow), thisAntenna.second - (iteration * diffColumn))
+                        val stillInMap = checkLocationIsInMap(antiNodeLoc)
 
-                        if (checkLocationIsInMap(antiNodeLoc)) {
+                        if (stillInMap) {
                             antiNodesLocs.add(antiNodeLoc)
-                            stillInMap = true
                             iteration++
                         }
                     } while (stillInMap)
