@@ -30,7 +30,7 @@ abstract class Challenge(private val day: String, private val example: Boolean) 
 
         timeTaken = measureTimeMillis {
             // Your method or code block here
-            print("Answer for part 1 [${part2()}]")
+            print("Answer for part 2 [${part2()}]")
         }
         println(", time taken: $timeTaken ms")
 
