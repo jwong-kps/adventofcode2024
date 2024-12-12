@@ -1,35 +1,45 @@
 package wong.jonathan.app
 
-private const val maxBlinks = 25
+private const val maxBlinks: Long = 25
 
 class Day11 : Challenge("day11", false) {
-    private val lines = readInputFileAsListOfStrings()
+    private val stones = readInputFileAsListOfStrings()
 
     override fun part1(): String {
-        val stones = lines[0].split(" ").toMutableList()
+        var stoneCount: Long = 0
 
-        for (blink in 1..maxBlinks) {
-            val newStones = mutableListOf<String>()
-            stones.forEach { stone ->
-                var temp = ruleOne(stone)
-                if (temp.isEmpty()) {
-                    temp = ruleTwo(stone)
-                    if (temp.isEmpty()) {
-                        temp = ruleThree(stone)
-                    }
-                }
-                newStones.addAll(temp)
-            }
-            stones.clear()
-            stones.addAll(newStones)
+        stones[0].split(" ").map { it.toLong() }.forEach { stone ->
+            stoneCount += changeStone(stone, 1)
         }
 
-        return stones.size.toString()
+        return stoneCount.toString()
     }
 
-    private fun ruleOne(stone: String): List<String> = if (stone == "0") listOf("1") else emptyList()
-    private fun ruleTwo(stone: String): List<String> = if (stone.length % 2 == 0) listOf(stone.substring(0, stone.length/2), stone.substring(stone.length/2)).map { it.toInt().toString() } else emptyList()
-    private fun ruleThree(stone: String): List<String> = listOf((stone.toLong() * 2024).toString())
+    private fun changeStone(stone1: Long, blink: Long): Long {
+        if (blink > maxBlinks) {
+            return 1
+        }
+
+
+        var count: Long = 0
+
+        if (stone1 == "0".toLong()) {
+            count += changeStone(1, blink + 1)
+        } else if (stone1.toString().length % 2 == 0) {
+            val stone1Str = stone1.toString()
+
+            val newStone1 = stone1Str.substring(0, stone1Str.length / 2)
+            count += changeStone(newStone1.toLong(), blink + 1)
+
+            val newStone2 = stone1Str.substring(stone1Str.length / 2)
+            count += changeStone(newStone2.toLong(), blink + 1)
+
+        } else {
+            count += changeStone(stone1 * 2024, blink + 1)
+        }
+
+        return count
+    }
 
     override fun part2(): String {
         return ""
