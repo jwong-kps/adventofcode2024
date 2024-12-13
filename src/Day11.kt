@@ -15,18 +15,15 @@ class Day11 : Challenge("day11", false) {
         return stoneCount.toString()
     }
 
-    private fun changeStone(stone1: Long, blink: Long): Long {
-        if (blink > maxBlinks) {
-            return 1
-        }
-
+    private fun changeStone(stone: Long, blink: Long): Long {
+        if (blink > maxBlinks) return 1
 
         var count: Long = 0
 
-        if (stone1 == "0".toLong()) {
+        if (stone == "0".toLong()) {
             count += changeStone(1, blink + 1)
-        } else if (stone1.toString().length % 2 == 0) {
-            val stone1Str = stone1.toString()
+        } else if (stone.toString().length % 2 == 0) {
+            val stone1Str = stone.toString()
 
             val newStone1 = stone1Str.substring(0, stone1Str.length / 2)
             count += changeStone(newStone1.toLong(), blink + 1)
@@ -35,7 +32,7 @@ class Day11 : Challenge("day11", false) {
             count += changeStone(newStone2.toLong(), blink + 1)
 
         } else {
-            count += changeStone(stone1 * 2024, blink + 1)
+            count += changeStone(stone * 2024, blink + 1)
         }
 
         return count
