@@ -21,6 +21,6 @@ fun main() {
 //    day09.execute()
 //    val day10 = Day10()
 //    day10.execute()
-//    val day11 = Day11()
-//    day11.execute()
+    val day11 = Day11()
+    day11.execute()
 }
