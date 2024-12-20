@@ -53,14 +53,11 @@ class Day12 : Challenge("day12", false) {
         return calculatePrice(regions)
     }
 
-    private fun calculatePrice(regions: HashSet<Set<Pair<Int, Int>>>): String
-    {
+    private fun calculatePrice(regions: HashSet<Set<Pair<Int, Int>>>): String {
         var price = 0
 
-        for (region in regions)
-        {
-            for (pair in region)
-            {
+        for (region in regions) {
+            for (pair in region) {
                 var neighbours = 0
                 for (direction in directions) {
                     val nextRow = pair.first + direction.first
