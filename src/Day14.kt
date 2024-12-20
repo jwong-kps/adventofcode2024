@@ -1,8 +1,8 @@
 package wong.jonathan.app
 
-data class Robot(var posX: Int, var posY: Int, var velX: Int, var velY: Int)
-
 class Day14 : Challenge("day14", false) {
+    data class Robot(var posX: Int, var posY: Int, var velX: Int, var velY: Int)
+
     private val lines = readInputFileAsListOfStrings()
     private val positionRegEx = Regex("p=\\d+,\\d+")
     private val velocityRegEx = Regex("v=-?\\d+,-?\\d+")
