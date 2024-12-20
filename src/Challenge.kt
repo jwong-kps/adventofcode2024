@@ -1,7 +1,6 @@
 package wong.jonathan.app
 
 import java.io.File
-import kotlin.system.measureNanoTime
 import kotlin.system.measureTimeMillis
 
 abstract class Challenge(private val day: String, private val example: Boolean) {

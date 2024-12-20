@@ -1,7 +1,5 @@
 package wong.jonathan.app
 
-import kotlin.math.absoluteValue
-
 data class Robot(var posX: Int, var posY: Int, var velX: Int, var velY: Int)
 
 class Day14 : Challenge("day14", false) {
@@ -31,8 +29,7 @@ class Day14 : Challenge("day14", false) {
     override fun part1(): String {
         parseLinesIntoRobots()
 
-        for (robot in robots)
-        {
+        for (robot in robots) {
             robot.posX = (robot.posX + (robot.velX * seconds)) % width
             robot.posY = (robot.posY + (robot.velY * seconds)) % height
 
